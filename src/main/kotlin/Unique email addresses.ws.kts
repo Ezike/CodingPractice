@@ -25,7 +25,7 @@ fun numUniqueEmails(
             }
             localName += char
         }
-        set.add("$localName" + "@" + "$domain")
+        set.add("$localName@$domain")
     }
     return set.size
 }
