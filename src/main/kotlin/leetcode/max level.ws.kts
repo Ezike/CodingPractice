@@ -12,7 +12,6 @@ fun maxLevelSum(root: TreeNode?): Int {
         sums[depth] += root.`val`
         val l = dfs(root.left, sums, depth + 1)
         val r = dfs(root.right, sums, depth + 1)
-        print("  [${root.`val`}]--  ($l, $r)")
         return maxOf(l, r)
     }
 

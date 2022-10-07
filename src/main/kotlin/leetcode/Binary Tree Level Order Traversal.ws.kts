@@ -19,7 +19,6 @@ package leetcode
 
         while (deque.size > 0) {
             val inner = mutableListOf<Int>()
-
             for (i in 0 until deque.size) {
 
                 val item = deque.removeFirst()
@@ -40,3 +39,16 @@ package leetcode
         return result
     }
 
+
+fun filterRestaurants(restaurants: Array<IntArray>, veganFriendly: Int, maxPrice: Int, maxDistance: Int): List<Int> {
+
+    val stores: List<IntArray> = if (veganFriendly == 1) {
+        restaurants.filter { it[2] == 1 }
+    } else {
+        restaurants.toList()
+    }
+
+    val stn = stores.filter { it[3] <= maxPrice && it[4] <= maxDistance }
+
+    return stn.map { it[2] }.sorted()
+}
